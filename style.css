@@ -4,10 +4,36 @@
 .Header--common {
     box-shadow: 0px 15px 20px 0px rgba(0,0,0,0.05);
 }
+@media screen and (max-width:767px) {
+    .Header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+@media screen and (max-width:1080px) {
+    .Header {
+        background-color: #fff;
+        z-index: 10;
+    }
+}
+/* 480px以下に適用されるCSS（スマホ用） */
+@media screen and (max-width:414px){
+    .Header {
+        height: 48px;
+        padding: 0;
+    }
+}
 .Header {
     background-color: #fff;
     display: grid;
     height: 70px;
+    width: 100%;
+}
+@media screen and (max-width:767px) {
+    .HeaderContainer {
+        max-width: 100%;
+        margin: 0 16px;
+    }
 }
 .HeaderContainer {
     display: flex;
@@ -16,8 +42,14 @@
     max-width: 100%;
     position: relative;
 }
-header {
-    unicode-bidi: isolate;
+div {
+    margin: 0;
+    padding: 0;
+}
+@media screen and (min-width:768px) {
+    .HeaderLogo:hover {
+        opacity: 0.8;
+    }
 }
 .HeaderLogo:hover {
     opacity: 0.8;
@@ -25,38 +57,88 @@ header {
 .HeaderLogo {
     align-self: center;
 }
-img.lazy {
-    min-height: 1px;
+.HeaderLogo__image--sp {
+    display: none;
+    height: 16px;
+    width: auto;
+}
+@media screen and (max-width:767px) {
+    .HeaderLogo__image--sp {
+        display: block !important;
+    }   
 }
 .HeaderLogo__image--pc {
     display: block;
     height: 20px;
     width: auto;
 }
-.HeaderLogo__image--sp {
-    display: none;
-    height: 16px;
-    width: auto;
+@media screen and (max-width:767px) {
+    .HeaderLogo__image--pc {
+        display: block !important;
+    }
 }
 img {
     margin: 0px;
     padding: 0px;
 }
-img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
-}
+
 a {
     color: #333;
     text-decoration: none;
 }
 .HeaderContainer>*:last-child {
     display: inline-flex;
-    word-break: break-all;
-    box-sizing: border-box;
 }
-.HeaderNavHamburger {
-    display: none;
+@media screen and (max-width:1080px) {
+    .HeaderNavHamburger__line:first-child {
+        top: 0;
+    }
+}
+@media screen and (max-width:1080px) {
+    .HeaderNavHamburger__line {
+        position: absolute;
+        top: 50%;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #A2A2A4;
+        transform: translate(0,-50%);
+        border-radius: 10px;
+        transition: top 0.2s,transform 0.2s,opacity 0.3s;
+    }
+}
+@media screen and (max-width:1080px) {
+    .HeaderNavHamburger {
+        cursor: pointer;
+        display: block;
+        position: relative;
+        width: 24px;
+        height: 17px;
+        margin: auto;
+        z-index: 100;
+    }
+}
+@media screen and (max-width:1080px) {
+    .HeaderNavHamburger__line:last-child {
+        top: 100%;
+    }
+}
+
+@media screen and (max-width:1080px) {
+    .HeaderNavList {
+        overflow-y: scroll;
+        position: fixed;
+        top: 60px;
+        left: 100%;
+        width: 100%;
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 75px;
+        transition: transfrom 0.5s;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.8);
+        height: 100%;
+    }
 }
 .HeaderNavList {
     align-items: center;
@@ -72,11 +154,28 @@ ul {
 .HeaderNavListItem {
     transition: opacity 0.2s;
 }
+@media screen and (max-width:767px) {
+    .HeaderNavListItem {
+    transition: opacity 0.2s;
+    }
+}
 .HeaderNavListItem {
     margin-right: 45px;
 }
+@media screen and (max-width:1080px) {
+    .HeaderNavListItem__link {
+        padding: 20px 0;
+    }
+}
 .HeaderNavListItem__link {
     display: block;
+}
+@media screen and (max-width:1080px) {
+    .HeaderNavListItem__link>span:first-child {
+        font-size: 16px;
+        letter-spacing: 5px;
+        color: #fff;
+    }
 }
 .HeaderNavListItem__link>span:first-child {
         font-family: "Lato", sans-serif;
@@ -87,6 +186,14 @@ ul {
     display: block;
     font-weight: 700;
     text-align: center;
+}
+@media screen and (max-width:1080px) {
+    .HeaderNavListItem__link>span:last-child {
+        font-size: 12px;
+        margin-top: 10px;
+        color: #f79214;
+        letter-spacing: 2px;
+    }
 }
 .HeaderNavListItem__link>span:last-child {
     font-size: 10px;
@@ -118,36 +225,64 @@ ul {
 main {
     display: block;
 }
+@media screen and (max-width:1080px) {
+    main {
+        padding-top: 60px;
+    }
+}
+@media screen and (max-width:767px) {
+    main {
+        padding-top: 52px;
+    }
+}
 .FirstView {
     position: relative;
     height: 739px;
 }
+@media screen and (max-width:767px) {
+    .FirstView {
+        height: fit-content;
+    }
+}
+
 img.lazy {
     min-height: 1px;
+}
+.FirstView__bg-image {
+    position: absolute;
+    z-index: -1;
+}
+@media screen and (max-width:767px) {
+    .FirstView__bg-image {
+        display: none;
+    }
+}
+.FirstView__whole-image {
+    display: none;
 }
 .FirstView__bg-image--left-rectangle {
     top: -70px;
     left: 0;
 }
-.FirstView__bg-image--right-rectangle {
-    right: 0;
-    bottom: 70px;
-}
 .FirstView__bg-image--fill-rectangle {
     top: 84px;
     left: -70px;
+}
+.FirstView__bg-image--right-rectangle {
+    right: 0;
+    bottom: 70px;
 }
 .FirstView__bg-image--main-visual {
     top: -70px;
     right: 0;
     width: 775px;
 }
-.FirstView__whole-image {
-    display: none;
-}
-.FirstView__bg-image {
-    position: absolute;
-    z-index: -1;
+@media screen and (max-width: 767px) {
+    .FirstView__whole-image {
+        display: block;
+        margin-bottom: 7px;
+        width: 100%;
+    }
 }
 img {
     border: 0;
@@ -159,6 +294,30 @@ img {
     margin-right: auto;
     position: relative;
     padding-top: 219px;
+}
+@media screen and (max-width: 1080px) {
+    .FirstView__container {
+        max-width: none;
+        padding-left: 36px;
+        padding-right: 36px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .FirstView__container {
+        max-width: none;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .FirstView__container {
+        padding-top: 0;
+        padding-bottom: 20px;
+    }
+}
+.img {
+    margin: 0;
+    padding: 0;
 }
 .FirstViewContent {
     position: relative;
@@ -172,19 +331,36 @@ img {
     font-weight: 800;
     line-height: 63px;
     margin-bottom: 16px;
-    display: block;
+}
+@media screen and (max-width:767px) {
+    .FirstViewContent__title {
+        font-size: 22px;
+        line-height: 36px;
+        position: relative;
+        width: fit-content;
+    }
 }
 .FirstViewContent__badge-image {
     position: absolute;
     top: -105px;
     right: -150px;
 }
+@media screen and (max-width:767px) {
+    .FirstViewContent__badge-image {
+        height: 102px;
+        width: 102px;
+        top: -20px;
+        right: -85px;
+    }
+}
 /* まずは無料カウンセリングへ */
 .FirstViewContent__button:hover {
     opacity: 0.8;
 }
-.FirstViewContent__button:visited {
-    color: #fff;
+@media screen and (min-width: 767px) {
+    .FirstViewContent__button {
+        transition: opacity 0.2s;
+    }
 }
 .FirstViewContent__button {
     align-items: center;
@@ -203,6 +379,14 @@ img {
     text-align: center;
     width: 100%;
     margin-bottom: 16px;
+}
+@media screen and (max-width:767px) {
+    .FirstViewContent__button {
+        width: 100% !important;
+    }
+}
+.FirstViewContent__button:visited {
+    color: #fff;
 }
 /* ※ショッパーズアイ */
 .FirstViewContent__caption {
